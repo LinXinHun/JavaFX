@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<GridPane alignment="center" hgap="10.0" minWidth="500.0" vgap="10.0" xmlns="http://javafx.com/javafx/8.0.121"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller" stylesheets="/sample/sample.css">
+    <Label contentDisplay="CENTER" graphicTextGap="6.0" text="输入参数" textAlignment="CENTER"
+           textOverrun="WORD_ELLIPSIS" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="1">
+        <font>
+            <Font name="System Bold Italic" size="20.0"/>
+        </font>
+    </Label>
+    <TextField fx:id="inParamField" minWidth="300.0" onKeyReleased="#inParamKey" GridPane.columnIndex="1"
+               GridPane.rowIndex="1"/>
+
+    <MenuButton fx:id="myMenuButton" alignment="CENTER" contentDisplay="CENTER" lineSpacing="1.0" minWidth="300.0"
+                mnemonicParsing="false" onAction="#dbAction" text="分库规则: 默认2" textAlignment="CENTER" textFill="#3e9447"
+                textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="1" GridPane.rowIndex="2">
+        <items>
+            <MenuItem styleClass="menu-item" mnemonicParsing="false" onAction="#dbAction" text="分库规则: 2"/>
+            <MenuItem styleClass="menu-item" mnemonicParsing="false" onAction="#dbAction" text="分库规则: 4"/>
+            <MenuItem styleClass="menu-item" mnemonicParsing="false" onAction="#dbAction" text="分库规则: 8"/>
+        </items>
+        <font>
+            <Font name="System Bold" size="20.0"/>
+        </font>
+    </MenuButton>
+
+    <Button fx:id="myButton" depthTest="ENABLE" minWidth="300.0" mnemonicParsing="false" onAction="#modAction"
+            pickOnBounds="false" text="取模" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3">
+        <font>
+            <Font name="System Bold" size="20.0"/>
+        </font>
+        <GridPane.margin>
+            <Insets bottom="1.0" left="1.0" right="1.0" top="1.0"/>
+        </GridPane.margin>
+    </Button>
+
+    <Label contentDisplay="CENTER" graphicTextGap="6.0" text="输出参数" textAlignment="CENTER" textFill="RED"
+           textOverrun="WORD_ELLIPSIS" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="4">
+        <font>
+            <Font name="System Bold Italic" size="20.0"/>
+        </font>
+    </Label>
+    <TextField fx:id="outParamField" editable="false" minWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+    <Label contentDisplay="CENTER" graphicTextGap="6.0" text="系统时间" textAlignment="CENTER" textFill="#8E8E8E"
+           textOverrun="WORD_ELLIPSIS" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="5">
+        <font>
+            <Font name="System Bold Italic" size="20.0"/>
+        </font>
+    </Label>
+    <TextField fx:id="myTextField" editable="false" minWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+    <columnConstraints>
+        <ColumnConstraints/>
+        <ColumnConstraints/>
+        <ColumnConstraints/>
+        <ColumnConstraints/>
+        <ColumnConstraints/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+    </rowConstraints>
+    <padding>
+        <Insets bottom="26.0" left="6.0" right="6.0" top="6.0"/>
+    </padding>
+</GridPane>

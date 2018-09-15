@@ -1,0 +1,24 @@
+.root {
+    -fx-background-image: url("bmg.gif");
+    -fx-background-repeat: repeat;
+    -fx-background-size: 100% 100%;
+}
+
+.menu-item {
+    -fx-min-width: 300px;
+}
+
+.menu-item .label {
+    -fx-alignment: center;
+    -fx-content-display: center;
+    -fx-text-fill: #3e9447;
+    -fx-font-size: 20px;
+}
+
+.menu-item:focused {
+    -fx-background-color: darkgray;
+}
+
+.text-field {
+    -fx-font-size: 20px;
+}
