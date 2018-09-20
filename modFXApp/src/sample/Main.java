@@ -12,8 +12,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("取模计算器");
-        primaryStage.setScene(new Scene(root, 500, 300));
+        primaryStage.setTitle("取模计算器2.0");
+        primaryStage.setScene(new Scene(root, 500, 400));
         primaryStage.getIcons().add(new Image("/sample/logo.png"));
         primaryStage.show();
     }

@@ -28,8 +28,22 @@
         </font>
     </MenuButton>
 
+    <MenuButton fx:id="myMenuTableButton" alignment="CENTER" contentDisplay="CENTER" lineSpacing="1.0" minWidth="300.0"
+                mnemonicParsing="false" onAction="#tableAction" text="分表规则: 默认128" textAlignment="CENTER" textFill="#3e9447"
+                textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="1" GridPane.rowIndex="3">
+        <items>
+            <MenuItem styleClass="menu-item" mnemonicParsing="false" onAction="#tableAction" text="分表规则: 64"/>
+            <MenuItem styleClass="menu-item" mnemonicParsing="false" onAction="#tableAction" text="分表规则: 128"/>
+            <MenuItem styleClass="menu-item" mnemonicParsing="false" onAction="#tableAction" text="分表规则: 256"/>
+            <MenuItem styleClass="menu-item" mnemonicParsing="false" onAction="#tableAction" text="分表规则: 512"/>
+        </items>
+        <font>
+            <Font name="System Bold" size="20.0"/>
+        </font>
+    </MenuButton>
+
     <Button fx:id="myButton" depthTest="ENABLE" minWidth="300.0" mnemonicParsing="false" onAction="#modAction"
-            pickOnBounds="false" text="取模" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            pickOnBounds="false" text="取模" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="4">
         <font>
             <Font name="System Bold" size="20.0"/>
         </font>
@@ -39,19 +53,19 @@
     </Button>
 
     <Label contentDisplay="CENTER" graphicTextGap="6.0" text="输出参数" textAlignment="CENTER" textFill="RED"
-           textOverrun="WORD_ELLIPSIS" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="4">
-        <font>
-            <Font name="System Bold Italic" size="20.0"/>
-        </font>
-    </Label>
-    <TextField fx:id="outParamField" editable="false" minWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
-    <Label contentDisplay="CENTER" graphicTextGap="6.0" text="系统时间" textAlignment="CENTER" textFill="#8E8E8E"
            textOverrun="WORD_ELLIPSIS" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="5">
         <font>
             <Font name="System Bold Italic" size="20.0"/>
         </font>
     </Label>
-    <TextField fx:id="myTextField" editable="false" minWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+    <TextField fx:id="outParamField" editable="false" minWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+    <Label contentDisplay="CENTER" graphicTextGap="6.0" text="系统时间" textAlignment="CENTER" textFill="#8E8E8E"
+           textOverrun="WORD_ELLIPSIS" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="6">
+        <font>
+            <Font name="System Bold Italic" size="20.0"/>
+        </font>
+    </Label>
+    <TextField fx:id="myTextField" editable="false" minWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
     <columnConstraints>
         <ColumnConstraints/>
         <ColumnConstraints/>

@@ -25,6 +25,9 @@ public class Controller implements Initializable {
     private MenuButton myMenuButton;
 
     @FXML
+    public MenuButton myMenuTableButton;
+
+    @FXML
     private TextField myTextField;
 
     @FXML
@@ -34,6 +37,8 @@ public class Controller implements Initializable {
     private TextField outParamField;
 
     private int dbValue = 2;
+
+    private int tableValue = 128;
 
     private String abdStr = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
 
@@ -70,35 +75,33 @@ public class Controller implements Initializable {
             }
 
             int dbValue = getDbValue();
+            int tableValue = getTableValue();
 
             String outParam = "你在逗我？";
             try {
 
-                Integer dbNum = 0;
-                Integer tableNum = 0;
+                Integer dbNum;
+                Integer tableNum;
 
-                Long fiveNumber;
+                String fiveNumber;
 
                 // openId
                 if (abcFlag) {
-                    long hashCode = param.hashCode();
-                    fiveNumber = Long.valueOf(getLastNumber(hashCode, 5));
+                    fiveNumber = getLastNumber(((Integer)param.hashCode()).toString(), 5);
                 } else {
 
                     // userId
                     if (param.length() >= 10) {
-                        Long userId = Long.valueOf(param);
-                        fiveNumber = Long.valueOf(getFirstNumber(Long.valueOf(getLastNumber(userId, 10)), 5));
+                        fiveNumber = getFirstNumber(getLastNumber(param, 10), 5);
                     } else {
                         // businessId
-                        Long businessId = Long.valueOf(param);
-                        fiveNumber = Long.valueOf(getLastNumber(businessId, 5));
+                        fiveNumber = getLastNumber(param, 5);
                     }
 
                 }
                 System.out.println(fiveNumber);
                 dbNum = Integer.valueOf(getFirstNumber(fiveNumber, 2)) % dbValue;
-                tableNum = Integer.valueOf(getLastNumber(fiveNumber, 3)) % 128;
+                tableNum = Integer.valueOf(getLastNumber(fiveNumber, 3)) % tableValue;
                 outParam = "库:" + dbNum + "\t\t\t\t\t\t\t\t 表:" + tableNum;
             } catch (Exception e) {
 
@@ -108,15 +111,13 @@ public class Controller implements Initializable {
         }
     }
 
-    public static String getLastNumber(long id, int length){
-        String idStr = String.valueOf(id);
+    public static String getLastNumber(String idStr, int length){
         int size = Math.min(idStr.length(),length);
         idStr = idStr.substring(idStr.length()-size);
         return String.format("%0" + length + "d",Long.valueOf(idStr));
     }
 
-    public static String getFirstNumber(long id, int length){
-        String idStr = String.valueOf(id);
+    public static String getFirstNumber(String idStr, int length){
         if(length > idStr.length()){
             return null;
         }
@@ -144,6 +145,28 @@ public class Controller implements Initializable {
         }
     }
 
+    public void tableAction(ActionEvent event) {
+        System.out.println("---tableChange---");
+        String text = ((MenuItem)event.getSource()).getText();
+        myMenuTableButton.setText(text);
+
+        if (text.contains("256")) {
+            setTableValue(256);
+        } else if (text.contains("512")) {
+            setTableValue(512);
+        } else if (text.contains("64")) {
+            setTableValue(64);
+        } else {
+            setTableValue(128);
+        }
+
+        String param = inParamField.getText();
+        if (param != null && !param.equals("") && param.length() >= 5) {
+            System.out.println("---modAction start---");
+            modAction(event);
+        }
+    }
+
     public void inParamKey(KeyEvent event) {
         System.out.println("---inParamChange---");
         String param = inParamField.getText();
@@ -160,4 +183,13 @@ public class Controller implements Initializable {
     public void setDbValue(int dbValue) {
         this.dbValue = dbValue;
     }
+
+    public int getTableValue() {
+        return tableValue;
+    }
+
+    public void setTableValue(int tableValue) {
+        this.tableValue = tableValue;
+    }
+
 }
